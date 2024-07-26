@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--
+		CIS213 Unit 4, Graded Exercise 2
+		Author: John Merritt
+		Date: 12/12/2021
+	-->
+	<meta charset="utf-8" />
+	<meta id="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+	<title>Unit 4, Graded Exercise 2</title>
+</head>
+<body>
+	<header>
+		<h1>
+			John Merritt, Graded Exercise 2
+		</h1>
+	</header>
+	<article>
+		<p id="visitMsg"></p>
+		<p id="visitCount"></p>
+	</article>
+	<script>
+		function setUpPage() {
+			var now = new Date();
+			var day = now.getDay();
+			var date = now.getDate();
+			var timeStr = now.toTimeString();
+			var year = now.getFullYear();
+			var month = now.getMonth();
+			var count = 1
+			
+			var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+			if (document.cookie) {
+				count = document.cookie.substring(0, document.cookie.indexOf("J"))
+				count++
+				document.getElementById("visitMsg").innerHTML = document.cookie.substring(document.cookie.indexOf("J"))
+				document.getElementById("visitCount").innerHTML = "You have visited this page " + count + " times.";
+			}
+			else {
+				document.getElementById("visitMsg").innerHTML = "This is your first visit";
+			}
+			document.cookie = count + "John Merritt your last visit was " + days[day] + " " + date + " / " + (month*1+1) + " / " + year +" at " + timeStr;
+		}
+		if (window.addEventListener) {
+			window.addEventListener("load", setUpPage, false);
+			}
+		else if (window.attachEvent) {
+			window.attachEvent("onload", setUpPage);
+			}
+	</script>
+</body>
+</html>

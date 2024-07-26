@@ -1,0 +1,83 @@
+<!DOCT<!DOCTYPE html>
+<html>
+<head>
+	<!--
+		CIS213 Unit 3, Performance Assessment 2
+		Author: John Merritt
+		Date: 11/28/21
+	-->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Unit 3 Performance Assessment 2</title>
+</head>
+<body>
+	<header>
+		<h1>John Merritt, Math Tables</h1>
+		</br>
+		<button onclick="additionTable()">Addition Table</button>
+		<button onclick="multiplicationTable()">Multiplication Table</button>
+	</header>
+	
+	<script>
+		"use strict"
+		function additionTable() {
+			var tableWin = window.open("", "MathTableDisplay",
+				"toolbar=no,menubar=no,location=no,scrollbar=yes,resizable=no,width=500,height=400");
+			tableWin.document.open();
+			tableWin.document.write("<h1>John Merritt, Addition Table</h1>");
+			tableWin.document.write("<table border='1' width='100%'>");
+			
+			//create the top header row
+			tableWin.document.write("<tr><th>&nbsp;</th>");
+			for (var i = 0; i < 11; i++) {
+				tableWin.document.write("<th>" + i + "</th>");
+			}
+			tableWin.document.write("</tr>")
+			
+			//create the row headers and the solutions
+			for  (var i = 0; i < 11; i++) {
+				tableWin.document.write("<tr align='center'><td>" + i + "</td>");
+				for (var j = 0; j < 11; j++) {
+					tableWin.document.write("<td>" + (i + j) + "</td>");
+				}
+				tableWin.document.write("</tr>");
+			}
+			
+			tableWin.document.write("</table>");
+			tableWin.document.close();
+			tableWin.focus();
+		}
+		
+		function multiplicationTable() {
+			var tableWin = window.open("", "MathTableDisplay",
+				"toolbar=no,menubar=no,location=no,scrollbar=yes,resizable=no,width=500,height=400");
+			tableWin.document.open();
+			tableWin.document.write("<h1>John Merritt, Multiplication Table</h1>");
+			tableWin.document.write("<table border='1' width='100%'>");
+			
+			//create the top header row
+			tableWin.document.write("<tr><th>&nbsp;</th>");
+			for (var i = 0; i < 11; i++) {
+				tableWin.document.write("<th>" + i + "</th>");
+			}
+			tableWin.document.write("</tr>")
+			
+			//create the row headers and the solutions
+			for  (var i = 0; i < 11; i++) {
+				tableWin.document.write("<tr align='center'><td>" + i + "</td>");
+				for (var j = 0; j < 11; ++j) {
+					tableWin.document.write("<td>" + (i * j) + "</td>");
+				}
+				tableWin.document.write("</tr>");
+			}
+			
+			tableWin.document.write("</table>");
+			tableWin.document.close();
+			tableWin.focus();
+		}		
+	</script>
+	
+	
+	
+</body>
+</html>
